@@ -1,0 +1,105 @@
+body > main {
+  grid-area: main;
+  padding: 5px;
+  max-width: 1000px;
+}
+body > nav {
+  grid-area: nav;
+}
+body > header {
+  grid-area: header;
+}
+main > article > section > .gallery {
+  justify-content: center;
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+body > footer {
+  grid-area: footer;
+}
+body > header > #language_flags > ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  padding-left: 0;
+}
+body > nav > #myLinks {
+  display: none;
+}
+body {
+  display: grid; 
+  grid-template-areas:
+  "header header header"
+  "nav main sidebar"
+  "footer footer footer";
+  grid-template-columns: calc(max-content + 10px) 1fr minmax(min-content, 200px);
+  grid-template-rows: auto;
+}
+main > article > section > .gallery > figure {
+  border: 3px green solid;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+body > aside#right_panel {
+  grid-area: sidebar;
+}
+@media screen and (max-width: 696px) {
+  main > article > section > .gallery > figure > img {
+    display: flex;
+    flex-direction: column;
+  }
+  main > article > section > .gallery > figure {
+    border: none;
+    border-bottom: 3px solid green;
+    border-radius: 5px;
+    padding-bottom: 25px;
+  }
+  main > article > section > .gallery > figure > figcaption {
+    border: none;
+    text-align: center;
+    max-width: 150px;
+  }
+}
+@media print, screen and (max-width: 1000px) {
+  body > main {
+    width: 100%;
+  }
+}
+@media print, screen and (max-width: 414px) {
+  body {
+    display: grid;
+    grid-template-columns: calc(max-content + 10px) 1fr minmax(
+        min-content,
+        200px
+      );
+    grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "sidebar"
+    "footer";
+    grid-template-rows: auto;
+    
+  }
+}
+@media print, screen and (max-width: 414px) {
+  body > nav > .turn-off {
+    display: none;
+  }
+}
+@media print, screen and (max-width: 414px) {
+  body > nav > .myLinks {
+    display: none;
+  }
+}
+@media print, screen and (min-width: 414px) {
+  body > nav > .hamburger-menu-icon {
+    display: none;
+  }
+}
